@@ -16,4 +16,6 @@ class Post(models.Model):
 class Username(models.Model):
     login = models.CharField(max_length=50)
     password = models.CharField(max_length=50)
-    login_data = models.DateTimeField(default=timezone.now)
+    email = models.CharField(max_length=50, default='test@test.ru')
+    name = models.CharField(max_length=50, default='testuser')
+
