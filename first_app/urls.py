@@ -2,6 +2,7 @@ from django.urls import path
 from first_app import views
 
 
+# Пути в приложении
 urlpatterns = [
     path('', views.home_page, name='home'),
     path('about/', views.about_page, name='about'),

@@ -13,6 +13,7 @@ class Post(models.Model):
         return self.title
 
 
+# Модель пользователя для авторизации/регистрации
 class Username(models.Model):
     login = models.CharField(max_length=50)
     password = models.CharField(max_length=50)
