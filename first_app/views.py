@@ -57,7 +57,7 @@ def logout_user(request):
 
 # Функция для регистрации пользователя в приложении
 def registration_user(request):
-    return render(request, 'registered_page.html')
+    return render(request, 'registration_form.html')
 
 
 # Функция для восстановления пароля пользователя
