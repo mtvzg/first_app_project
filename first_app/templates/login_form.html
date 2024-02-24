@@ -17,7 +17,7 @@
             </form>
             {% if message %}
                 <p>{{ message }}</p>
-                <a href="">Забыли пароль?</a>
+                <a href="{% url 'forgot_password' %}">Забыли пароль?</a>
             {% endif %}
     {% endif %}
 {% endblock %}

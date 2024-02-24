@@ -52,3 +52,7 @@ def logout_user(request):
 
 def registration_user(request):
     return render(request, 'registered_page.html')
+
+
+def forgot_password(request):
+    return render(request, 'forgot_password.html')
