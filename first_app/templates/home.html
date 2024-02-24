@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+{% for item in news %}
+<article>
+    <div class="article_header">
+        <h3>{{ item.title }}</h3>
+        <span>{{ item.author }}</span>
+    </div>
+        <div>{{ item.text }}</div>
+</article>
+{% endfor %}
+{% endblock %}
