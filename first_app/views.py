@@ -7,6 +7,7 @@ from .forms import LoginForm
 from .models import Post, Username
 
 
+# Домашняя страница
 def home_page(request):
     with open('./first_app/static/news.json', encoding='utf8') as file:
         news: List[Dict[str, str]] = json.load(file)
@@ -16,6 +17,7 @@ def home_page(request):
                   )
 
 
+# Страница "О нас"
 def about_page(request):
     with open('./first_app/static/about.json', encoding='utf8') as file:
         about: List[Dict[str, str]] = json.load(file)
@@ -25,11 +27,13 @@ def about_page(request):
                   )
 
 
+# Функция для создания формы на странице авторизации
 def login_form(request):
     form = LoginForm(request.POST)
     return render(request, 'login_form.html', {'form': form})
 
 
+# Функция для авторизации пользователя в приложении
 def log_in(request):
     if request.method == 'POST':
         login = request.POST.get('login')
@@ -45,14 +49,17 @@ def log_in(request):
             return render(request, 'login_form.html', {'message': message})
 
 
+# Функция выхода пользователя из приложения
 def logout_user(request):
     logout(request)
     return redirect('login_form')
 
 
+# Функция для регистрации пользователя в приложении
 def registration_user(request):
     return render(request, 'registered_page.html')
 
 
+# Функция для восстановления пароля пользователя
 def forgot_password(request):
     return render(request, 'forgot_password.html')
