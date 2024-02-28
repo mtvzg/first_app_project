@@ -1,9 +1,10 @@
 import json
 from typing import Dict, List
 
-from django.contrib.auth import logout
+from django.contrib.auth import logout, authenticate
+from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
-from .forms import LoginForm
+from .forms import LoginForm, RegistrationForm
 from .models import Post, Username
 
 
@@ -57,7 +58,17 @@ def logout_user(request):
 
 # Функция для регистрации пользователя в приложении
 def registration_user(request):
-    return render(request, 'registration_form.html')
+    if request.method == 'POST':
+        form = RegistrationForm(request.POST)
+        if form.is_valid():
+            login = form.cleaned_data.get('login')
+            password = form.cleaned_data.get('password')
+            email = form.cleaned_data.get('email')
+            name = form.cleaned_data.get('name')
+            user = Username.objects.create(login=login, password=password, email=email, name=name)
+            return log_in(request)
+    form = RegistrationForm()
+    return render(request, 'registration_form.html', {'form': form})
 
 
 # Функция для восстановления пароля пользователя

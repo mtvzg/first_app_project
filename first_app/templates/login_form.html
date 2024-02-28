@@ -12,12 +12,12 @@
                 </div>
                 <div class="button">
                 <button type="submit">Вход</button>
-                <button type="submit">Регистрация</button>
                 </div>
             </form>
             {% if message %}
                 <p>{{ message }}</p>
                 <a href="{% url 'forgot_password' %}">Забыли пароль?</a>
+                <p><a href="{% url 'registration' %}"><button>Регистрация</button></a></p>
             {% endif %}
     {% endif %}
 {% endblock %}

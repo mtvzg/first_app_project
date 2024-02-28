@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
     <h3>Регистрация</h3>
-    <form method="post" onsubmit="return validatePasswords()">
+    <form method="post" onsubmit="return validatePasswords()" action="{% url 'registration' %}">
         {% csrf_token %}
         <p><input type="text" name="name" placeholder="Введите ваше Имя"></p>
         <p><input type="text" name="email" placeholder="Введите вашу почту"></p>
