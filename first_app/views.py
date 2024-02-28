@@ -65,7 +65,7 @@ def registration_user(request):
             password = form.cleaned_data.get('password')
             email = form.cleaned_data.get('email')
             name = form.cleaned_data.get('name')
-            user = Username.objects.create(login=login, password=password, email=email, name=name)
+            Username.objects.create(login=login, password=password, email=email, name=name)
             return log_in(request)
     form = RegistrationForm()
     return render(request, 'registration_form.html', {'form': form})
