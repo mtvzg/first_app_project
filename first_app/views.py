@@ -1,8 +1,7 @@
 import json
 from typing import Dict, List
 
-from django.contrib.auth import logout, authenticate
-from django.contrib.auth.models import User
+from django.contrib.auth import logout
 from django.shortcuts import render, redirect
 from .forms import LoginForm, RegistrationForm
 from .models import Post, Username
